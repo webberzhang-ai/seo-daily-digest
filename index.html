@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO DAILY DIGEST</title>
+    <meta name="description" content="每日精选 SEO/GEO 资讯">
+
+    <!-- Open Graph / 社交分享预览 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SEO DAILY DIGEST">
+    <meta property="og:description" content="每日精选 SEO/GEO 资讯 - 更新于 2026-02-13 17:24">
+    <meta property="og:site_name" content="SEO DAILY DIGEST">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SEO DAILY DIGEST">
+    <meta name="twitter:description" content="每日精选 SEO/GEO 资讯 - 更新于 2026-02-13 17:24">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #0f1520;
+            --bg-card: #141c2b;
+            --bg-card-hover: #1a2436;
+            --bg-sidebar: #0c1018;
+
+            --text-primary: #e8edf5;
+            --text-secondary: #8b95a8;
+            --text-muted: #5a6578;
+
+            --accent-cyan: #00d4ff;
+            --accent-magenta: #ff00aa;
+            --accent-purple: #8b5cf6;
+            --accent-green: #00ff88;
+            --accent-orange: #ff9500;
+            --accent-blue: #3b82f6;
+
+            --glow-cyan: rgba(0, 212, 255, 0.15);
+            --glow-magenta: rgba(255, 0, 170, 0.1);
+
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-glow: rgba(0, 212, 255, 0.3);
+
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --sidebar-width: 220px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-display);
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: var(--sidebar-width);
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 20% -10%, var(--glow-cyan), transparent),
+                radial-gradient(ellipse 60% 40% at 80% 110%, var(--glow-magenta), transparent);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Subtle grid pattern */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: var(--sidebar-width);
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border-subtle);
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .sidebar-title {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+        }
+
+        .sidebar-subtitle {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--accent-cyan);
+        }
+
+        .history-list {
+            padding: 0.5rem 0;
+        }
+
+        .history-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+        }
+
+        .history-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .history-item.active {
+            background: rgba(0, 212, 255, 0.08);
+            border-left-color: var(--accent-cyan);
+        }
+
+        .history-date {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .history-item.active .history-date {
+            color: var(--accent-cyan);
+        }
+
+        .history-count {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+        }
+
+        .history-item.active .history-count {
+            background: rgba(0, 212, 255, 0.15);
+            color: var(--accent-cyan);
+        }
+
+        /* Main content */
+        .main-wrapper {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            padding: 2.5rem 0 2rem;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .brand {
+            flex: 1;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 0 20px var(--glow-cyan);
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .site-description {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        .site-description::before {
+            content: '// ';
+            color: var(--accent-cyan);
+        }
+
+        .author {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .author span {
+            color: var(--accent-purple);
+            font-weight: 600;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 1.5rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Current date display */
+        .current-date-display {
+            padding: 1rem 0;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .current-date-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+        }
+
+        .current-date-value {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .current-date-value::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-cyan);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Article cards */
+        .articles-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        article {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        article::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        article:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-glow);
+            transform: translateY(-2px);
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.3),
+                0 0 30px var(--glow-cyan);
+        }
+
+        article:hover::before {
+            opacity: 1;
+        }
+
+        article h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+
+        article h2 a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        article h2 a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .summary {
+            font-size: 0.875rem;
+            color: #b8c4d6;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .source {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: #a0aec0;
+            padding: 0.25rem 0.6rem;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .tag.seo-tools {
+            color: var(--accent-cyan);
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .tag.case-study {
+            color: var(--accent-green);
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .tag.data-report {
+            color: var(--accent-purple);
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .tag.tutorial {
+            color: var(--accent-orange);
+            background: rgba(255, 149, 0, 0.1);
+            border: 1px solid rgba(255, 149, 0, 0.3);
+        }
+
+        .tag.news {
+            color: var(--accent-magenta);
+            background: rgba(255, 0, 170, 0.1);
+            border: 1px solid rgba(255, 0, 170, 0.3);
+        }
+
+        .tag.local-seo {
+            color: #fbbf24;
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .tag.opensource {
+            color: var(--accent-blue);
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .score {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .score::before {
+            content: '▲';
+            font-size: 0.6rem;
+            color: var(--accent-orange);
+        }
+
+        .stars {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .stars::before {
+            content: '★';
+            color: var(--accent-orange);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+
+        .footer-content {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .footer-brand {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand span {
+            color: var(--accent-cyan);
+        }
+
+        .footer-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .footer-meta span::before {
+            content: '› ';
+            color: var(--accent-cyan);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .articles-grid article {
+            animation: fadeInUp 0.4s ease-out backwards;
+        }
+
+        .articles-grid article:nth-child(1) { animation-delay: 0.05s; }
+        .articles-grid article:nth-child(2) { animation-delay: 0.1s; }
+        .articles-grid article:nth-child(3) { animation-delay: 0.15s; }
+        .articles-grid article:nth-child(4) { animation-delay: 0.2s; }
+        .articles-grid article:nth-child(5) { animation-delay: 0.25s; }
+
+        /* Mobile sidebar toggle */
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            width: 48px;
+            height: 48px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 50%;
+            color: var(--accent-cyan);
+            font-size: 1.25rem;
+            cursor: pointer;
+            z-index: 200;
+            box-shadow: 0 0 20px var(--glow-cyan);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            :root {
+                --sidebar-width: 0px;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                width: 220px;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .sidebar-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            body::before,
+            body::after {
+                left: 0;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .header-stats {
+                width: 100%;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            article {
+                padding: 1rem 1.25rem;
+            }
+
+            article h2 {
+                font-size: 0.95rem;
+            }
+
+            .meta {
+                gap: 0.4rem;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-card);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">历史记录</div>
+            <div class="sidebar-subtitle">ARCHIVE</div>
+        </div>
+        <nav class="history-list">
+            
+            <div class="history-item active" data-date="2026-02-13" onclick="switchDate('2026-02-13')">
+                <span class="history-date">2026-02-13</span>
+                <span class="history-count">50</span>
+            </div>
+            
+        </nav>
+    </aside>
+
+    <!-- Mobile toggle -->
+    <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Main content -->
+    <div class="main-wrapper">
+        <div class="container">
+            <header>
+                <div class="header-content">
+                    <div class="brand">
+                        <div class="logo">
+                            <div class="logo-icon">⚡</div>
+                            <h1>SEO DAILY DIGEST</h1>
+                        </div>
+                        <p class="site-description">每日精选 SEO/GEO 资讯</p>
+                        <p class="author">by <span>Webber</span></p>
+                    </div>
+                    <div class="header-stats">
+                        <div class="stat">
+                            <span class="stat-value" id="currentCount">50</span>
+                            <span class="stat-label">资讯</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">02/13</span>
+                            <span class="stat-label">日期</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <div class="current-date-display">
+                    <div class="current-date-label">当前查看</div>
+                    <div class="current-date-value" id="currentDateDisplay">2026-02-13</div>
+                </div>
+
+                <div class="articles-grid" id="articlesContainer">
+                    
+                        
+                        <article>
+                            <h2><a href="https://www.semrush.com/blog/ai-visibility-audit-with-semrush-one/" target="_blank" rel="noopener">How to Conduct an AI Visibility Audit with Semrush One</a></h2>
+                            <p class="summary">Is your current website health and content strategy set up to help you succeed in AI search?</p>
+                            <div class="meta">
+                                <span class="source">Semrush Blog</span>
+                                
+                                <span class="tag seo-tools">SEO工具</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://www.semrush.com/blog/google-search-console/" target="_blank" rel="noopener">Google Search Console: The Ultimate Guide for 2026</a></h2>
+                            <p class="summary">Learn how to use Google Search Console to monitor performance, fix issues, and improve visibility.</p>
+                            <div class="meta">
+                                <span class="source">Semrush Blog</span>
+                                
+                                <span class="tag tutorial">技术教程</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://www.semrush.com/blog/what-is-mcp-connector/" target="_blank" rel="noopener">How Semrush MCP Connects Your AI Tools to Live Marketing Data</a></h2>
+                            <p class="summary">Learn how Semrush MCP connects AI tools to live SEO and competitive data so marketing, SEO, and prod...</p>
+                            <div class="meta">
+                                <span class="source">Semrush Blog</span>
+                                
+                                <span class="tag seo-tools">SEO工具</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://www.semrush.com/blog/how-to-automate-google-business-profile-management-with-semrush/" target="_blank" rel="noopener">How to Automate Google Business Profile Management with Semrush</a></h2>
+                            <p class="summary">Automate Google Business Profile management with Semrush’s GBP AI Agent. Save time, stay active, and...</p>
+                            <div class="meta">
+                                <span class="source">Semrush Blog</span>
+                                
+                                <span class="tag seo-tools">SEO工具</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://www.semrush.com/blog/seo-tips/" target="_blank" rel="noopener">13 SEO Tips to Boost Your Search Visibility</a></h2>
+                            <p class="summary">Top SEO tips include targeting the right terms, updating your content, and prioritizing readability.</p>
+                            <div class="meta">
+                                <span class="source">Semrush Blog</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://www.semrush.com/blog/sitemap-examples/" target="_blank" rel="noopener">7 Sitemap Examples: XML, HTML, and Visual Sitemaps</a></h2>
+                            <p class="summary">See XML, HTML, and visual sitemap examples from real sites—plus guidance on what to include in yours...</p>
+                            <div class="meta">
+                                <span class="source">Semrush Blog</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://ahrefs.com/blog/gsc-anonymized-queries/" target="_blank" rel="noopener">Anonymized Queries Make Up Nearly Half of Google Search Console Traffic</a></h2>
+                            <p class="summary">This number is slightly higher than our 2022 study on anonymized queries. However, that’s the averag...</p>
+                            <div class="meta">
+                                <span class="source">Ahrefs Blog</span>
+                                
+                                <span class="tag data-report">数据报告</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://ahrefs.com/blog/eeat-audit/" target="_blank" rel="noopener">E-E-A-T Audit: 220+ Markers That Measure Experience, Expertise, Authority, and Trust</a></h2>
+                            <p class="summary">The answer is an E-E-A-T audit. If you’re unfamiliar with E-E-A-T (Experience, Expertise, Authoritat...</p>
+                            <div class="meta">
+                                <span class="source">Ahrefs Blog</span>
+                                
+                                <span class="tag tutorial">技术教程</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://ahrefs.com/blog/google-maps-seo/" target="_blank" rel="noopener">Google Maps SEO: 5 Proven Strategies to Rank Higher</a></h2>
+                            <p class="summary">But when potential customers search “pizza near me” or “plumber in London,” you’re nowhere to be fou...</p>
+                            <div class="meta">
+                                <span class="source">Ahrefs Blog</span>
+                                
+                                <span class="tag case-study">案例分析</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://ahrefs.com/blog/semantic-search-is-the-only-search-that-matters-now/" target="_blank" rel="noopener">Semantic Search Is the Only Search That Matters Now (For SEO and AI Visibility)</a></h2>
+                            <p class="summary">Search engines “think” in topics, not keywords. They understand entities—people, places, products, i...</p>
+                            <div class="meta">
+                                <span class="source">Ahrefs Blog</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://feedpress.me/link/9375/14757949/cannibalization" target="_blank" rel="noopener">Cannibalization</a></h2>
+                            <p class="summary">In today's episode of Whiteboard Friday, Moz SEO expert Tom Capper walks you through cannibalization...</p>
+                            <div class="meta">
+                                <span class="source">Moz Blog</span>
+                                
+                                <span class="tag seo-tools">SEO工具</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://feedpress.me/link/9375/14753388/title-tag-rewrite-case-study" target="_blank" rel="noopener">Tackling 8,000 Title Tag Rewrites: A Case Study</a></h2>
+                            <p class="summary">Let's take an in-depth look at Moz.com title tags that were re-written by Google, including three ca...</p>
+                            <div class="meta">
+                                <span class="source">Moz Blog</span>
+                                
+                                <span class="tag seo-tools">SEO工具</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://feedpress.me/link/9375/14746944/add-products-to-gmb-listing" target="_blank" rel="noopener">How to Add Products to Your Google My Business Listing, Illustrated</a></h2>
+                            <p class="summary">Miriam helps you get started in Google My Business Products with this illustrated tutorial, walking...</p>
+                            <div class="meta">
+                                <span class="source">Moz Blog</span>
+                                
+                                <span class="tag local-seo">本地SEO</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://feedpress.me/link/9375/14742542/three-seo-bosses" target="_blank" rel="noopener">The Three Bosses of SEO</a></h2>
+                            <p class="summary">In SEO, there are three main “bosses” with different needs: your business, your searchers, and your...</p>
+                            <div class="meta">
+                                <span class="source">Moz Blog</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://feedpress.me/link/9375/14737629/winning-page-speed" target="_blank" rel="noopener">Winning the Page Speed Race: How to Turn Your Clunker of a Website Into a Race Car</a></h2>
+                            <p class="summary">Winning the page speed race requires the same things as winning a car race: making sure that your ve...</p>
+                            <div class="meta">
+                                <span class="source">Moz Blog</span>
+                                
+                                <span class="tag tutorial">技术教程</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://feedpress.me/link/9375/14733670/calculate-seo-roi-with-google-analytics" target="_blank" rel="noopener">How to Calculate Your SEO ROI Using Google Analytics</a></h2>
+                            <p class="summary">Measuring ROI for your SEO efforts involves two factors: KPIs and the cost of your current SEO campa...</p>
+                            <div class="meta">
+                                <span class="source">Moz Blog</span>
+                                
+                                <span class="tag tutorial">技术教程</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://feedpress.me/link/9375/14729254/find-seo-opportunities-with-stat" target="_blank" rel="noopener">How to Use STAT to Find SEO Opportunities at Scale</a></h2>
+                            <p class="summary">Today, Cyrus explains how powerful STAT can be when you’re trying to discover SEO opportunities on a...</p>
+                            <div class="meta">
+                                <span class="source">Moz Blog</span>
+                                
+                                <span class="tag tutorial">技术教程</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://feedpress.me/link/9375/14723651/targeted-impact-link-building-guide" target="_blank" rel="noopener">The Guide to Targeted-Impact Link Building</a></h2>
+                            <p class="summary">Links drive rankings — that’s one thing that SEOs and marketers can agree on. But which rankings, an...</p>
+                            <div class="meta">
+                                <span class="source">Moz Blog</span>
+                                
+                                <span class="tag tutorial">技术教程</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://www.searchenginejournal.com/from-performance-seo-to-demand-seo/566743/" target="_blank" rel="noopener">From Performance SEO To Demand SEO via @sejournal, @TaylorDanRW</a></h2>
+                            <p class="summary">Rethink SEO’s role as AI shifts discovery into the answer and reshapes how demand, trust, and prefer...</p>
+                            <div class="meta">
+                                <span class="source">Search Engine Journal</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://www.searchenginejournal.com/what-the-data-shows-about-local-rankings/565920/" target="_blank" rel="noopener">What The Data Shows About Local Rankings In 2026 [Webinar] via @sejournal, @hethr_campbell</a></h2>
+                            <p class="summary">Enhance your understanding of local rankings with reputation signals. Join experts for a deep dive i...</p>
+                            <div class="meta">
+                                <span class="source">Search Engine Journal</span>
+                                
+                                <span class="tag local-seo">本地SEO</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://searchengineland.com/seo-rocket-science-ai-seo-astrophysics-468923" target="_blank" rel="noopener">If SEO is rocket science, AI SEO is astrophysics</a></h2>
+                            <p class="summary">AI search runs on entity mass, not surface signals. See how citations and extractability shape AI Ov...</p>
+                            <div class="meta">
+                                <span class="source">Search Engine Land</span>
+                                
+                                <span class="tag local-seo">本地SEO</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://searchengineland.com/local-seo-sprints-a-90-day-plan-for-service-businesses-in-2026-469059" target="_blank" rel="noopener">Local SEO sprints: A 90-day plan for service businesses in 2026</a></h2>
+                            <p class="summary">From GBP fundamentals to reviews and service pages, this framework helps you turn local visibility i...</p>
+                            <div class="meta">
+                                <span class="source">Search Engine Land</span>
+                                
+                                <span class="tag local-seo">本地SEO</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://searchengineland.com/google-releases-preview-of-webmcp-how-ai-agents-interact-with-websites-469024" target="_blank" rel="noopener">Google previews WebMCP, a new protocol for AI agent interactions</a></h2>
+                            <p class="summary">Google's WebMCP protocol lets AI agents execute structured actions on websites via browser APIs. Is...</p>
+                            <div class="meta">
+                                <span class="source">Search Engine Land</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://backlinko.com/automate-marketing" target="_blank" rel="noopener">How to Automate Marketing With 8 Simple Workflows</a></h2>
+                            <p class="summary">Everybody wants smoother workflows and fewer manual tasks. And thanks to AI models, automation is at...</p>
+                            <div class="meta">
+                                <span class="source">Backlinko</span>
+                                
+                                <span class="tag opensource">开源项目</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://backlinko.com/perplexity-statistics" target="_blank" rel="noopener">Perplexity AI User and Revenue Statistics</a></h2>
+                            <p class="summary">Founded in 2022, Perplexity offers an AI-powered search engine. AI tools offer a new way to search f...</p>
+                            <div class="meta">
+                                <span class="source">Backlinko</span>
+                                
+                                <span class="tag seo-tools">SEO工具</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://backlinko.com/marketing-ai-adoption" target="_blank" rel="noopener">7 Marketing AI Adoption Challenges (And How to Fix Them)</a></h2>
+                            <p class="summary">You&#8217;ve likely invested in AI tools for your marketing team, or at least encouraged people to e...</p>
+                            <div class="meta">
+                                <span class="source">Backlinko</span>
+                                
+                                <span class="tag seo-tools">SEO工具</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://backlinko.com/content-writing" target="_blank" rel="noopener">Content Writing 101: 8 Skills That Set Top Writers Apart</a></h2>
+                            <p class="summary">With AI tools at everyone&#8217;s fingertips, what does “great” content writing mean in 2026? Conten...</p>
+                            <div class="meta">
+                                <span class="source">Backlinko</span>
+                                
+                                <span class="tag seo-tools">SEO工具</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://backlinko.com/fashion-ai" target="_blank" rel="noopener">Fashion AI SEO: How to Improve Your Brand’s LLM Visibility</a></h2>
+                            <p class="summary">AI chat is changing how people shop for fashion — fast. Before AI, buying something as simple as cas...</p>
+                            <div class="meta">
+                                <span class="source">Backlinko</span>
+                                
+                                <span class="tag case-study">案例分析</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://backlinko.com/brand-subreddit" target="_blank" rel="noopener">How to Build a Brand Subreddit: Full Setup Guide (+ Examples)</a></h2>
+                            <p class="summary">Creating an official brand subreddit is one of the hardest marketing spaces to get right. Why? Becau...</p>
+                            <div class="meta">
+                                <span class="source">Backlinko</span>
+                                
+                                <span class="tag tutorial">技术教程</span>
+                                
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://reddit.com/r/SEO/comments/1r1c6ru/introducing_ai_performance_in_bing_webmaster/" target="_blank" rel="noopener">Introducing AI Performance in Bing Webmaster Tools Public Preview</a></h2>
+                            <p class="summary">H/t tp u/lilyraynyc for sharing this on [X](https://x.com/lilyraynyc/status/2021301631912902912)
+
+#...</p>
+                            <div class="meta">
+                                <span class="source">r/SEO</span>
+                                
+                                <span class="tag opensource">开源项目</span>
+                                
+                                
+                                <span class="score">25</span>
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://reddit.com/r/SEO/comments/1qzt59k/understanding_crawled_not_indexed_in_gsc_an/" target="_blank" rel="noopener">Understanding Crawled, Not Indexed in GSC - an Authority Issue</a></h2>
+                            <p class="summary">In Google Search Console, one of the most misunderstood status messages is “Crawled — currently not...</p>
+                            <div class="meta">
+                                <span class="source">r/SEO</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                <span class="score">92</span>
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://reddit.com/r/SEO/comments/1r3etzy/best_seo_tool/" target="_blank" rel="noopener">Best SEO tool?</a></h2>
+                            <p class="summary">Is SE Ranking the most affordable and quality SEO tool out there? They just recently raised their pr...</p>
+                            <div class="meta">
+                                <span class="source">r/SEO</span>
+                                
+                                <span class="tag opensource">开源项目</span>
+                                
+                                
+                                <span class="score">12</span>
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://reddit.com/r/SEO/comments/1r3fy2l/whats_the_longest_youve_seen_google_search/" target="_blank" rel="noopener">What's the longest you've seen Google Search Console take to index a page?</a></h2>
+                            <p class="summary">I requested indexing for a page about 3 weeks ago and it's still showing as pending. Is that normal?</p>
+                            <div class="meta">
+                                <span class="source">r/SEO</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                <span class="score">2</span>
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://reddit.com/r/bigseo/comments/1r04ymf/seo_help_weekly_mega_thread/" target="_blank" rel="noopener">SEO Help Weekly Mega Thread</a></h2>
+                            <p class="summary">**Beginner questions welcome.**
+
+Post any legitimate SEO question. Ask for help with technical SEO i...</p>
+                            <div class="meta">
+                                <span class="source">r/bigseo</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                <span class="score">4</span>
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://reddit.com/r/bigseo/comments/1r3jlxb/is_it_okay_to_publish_a_case_study_without/" target="_blank" rel="noopener">Is It Okay to Publish a Case Study Without Mentioning the Client Name?</a></h2>
+                            <p class="summary">I want to publish a case study on my website for SEO and credibility, but the client prefers to stay...</p>
+                            <div class="meta">
+                                <span class="source">r/bigseo</span>
+                                
+                                <span class="tag case-study">案例分析</span>
+                                
+                                
+                                <span class="score">1</span>
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://reddit.com/r/bigseo/comments/1r29g2b/outsourcing_seo_internationally_whats_worked_for/" target="_blank" rel="noopener">outsourcing SEO internationally - What’s worked for you?</a></h2>
+                            <p class="summary">\*update: if you’re just going to comment opinions on this type of leadership, please just don’t com...</p>
+                            <div class="meta">
+                                <span class="source">r/bigseo</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                <span class="score">9</span>
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://reddit.com/r/bigseo/comments/1r2kwts/tanked_to_almost_zero_leads/" target="_blank" rel="noopener">Tanked to almost zero leads</a></h2>
+                            <p class="summary">Since Feb start, we had little to no leads from our SEO channel. But no drop in clicks, impressions,...</p>
+                            <div class="meta">
+                                <span class="source">r/bigseo</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                <span class="score">2</span>
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://reddit.com/r/TechSEO/comments/1r3ju9d/would_you_suggest_finish_developing_a_whole/" target="_blank" rel="noopener">Would you suggest finish developing a whole website offline before uploading it, or just develop it online as it goes, if it is going to take over 5months to finish the job? (SEO Wise)</a></h2>
+                            <p class="summary">I wonder more how each approach would affect the SEO results.</p>
+                            <div class="meta">
+                                <span class="source">r/TechSEO</span>
+                                
+                                <span class="tag case-study">案例分析</span>
+                                
+                                
+                                <span class="score">2</span>
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://reddit.com/r/TechSEO/comments/1r3ire7/moltbook_ai_seo_citation_probability_position_1/" target="_blank" rel="noopener">Moltbook AI SEO: Citation Probability &gt; Position #1?</a></h2>
+                            <p class="summary">Serious question for this sub:
+
+Are we slowly moving from ranking optimization to retrieval optimiza...</p>
+                            <div class="meta">
+                                <span class="source">r/TechSEO</span>
+                                
+                                <span class="tag local-seo">本地SEO</span>
+                                
+                                
+                                <span class="score">2</span>
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://news.ycombinator.com/item?id=46996490" target="_blank" rel="noopener">Tell HN: Ralph Giles has died (Xiph.org| Rust@Mozilla | Ghostscript)</a></h2>
+                            <p class="summary">HN 热门 - 206 分, 8 条评论</p>
+                            <div class="meta">
+                                <span class="source">Hacker News</span>
+                                
+                                <span class="tag seo-tools">SEO工具</span>
+                                
+                                
+                                <span class="score">206</span>
+                                
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://github.com/PhialsBasement/LibreCrawl" target="_blank" rel="noopener">PhialsBasement/LibreCrawl - Free desktop SEO crawler - open source alternative to Screaming Frog and similar tools. Crawl websit</a></h2>
+                            <p class="summary">Free desktop SEO crawler - open source alternative to Screaming Frog and similar tools. Crawl websit...</p>
+                            <div class="meta">
+                                <span class="source">GitHub</span>
+                                
+                                <span class="tag opensource">开源项目</span>
+                                
+                                
+                                
+                                <span class="stars">436</span>
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://github.com/riodwanto/superduper-filament-starter-kit" target="_blank" rel="noopener">riodwanto/superduper-filament-starter-kit - A comprehensive Laravel Filament 💡 starter kit with pre-installed plugins, admin panel, user managem</a></h2>
+                            <p class="summary">A comprehensive Laravel Filament 💡 starter kit with pre-installed plugins, admin panel, user managem...</p>
+                            <div class="meta">
+                                <span class="source">GitHub</span>
+                                
+                                <span class="tag seo-tools">SEO工具</span>
+                                
+                                
+                                
+                                <span class="stars">268</span>
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://github.com/marketingtoolslist/awesome-marketing" target="_blank" rel="noopener">marketingtoolslist/awesome-marketing - A curated list of awesome marketing tools and resources</a></h2>
+                            <p class="summary">A curated list of awesome marketing tools and resources</p>
+                            <div class="meta">
+                                <span class="source">GitHub</span>
+                                
+                                <span class="tag seo-tools">SEO工具</span>
+                                
+                                
+                                
+                                <span class="stars">244</span>
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://github.com/aaron-he-zhu/seo-geo-claude-skills" target="_blank" rel="noopener">aaron-he-zhu/seo-geo-claude-skills - 20 SEO & GEO skills for Claude Code, Cursor, Codex, and 35+ AI agents. Keyword research, content wri</a></h2>
+                            <p class="summary">20 SEO & GEO skills for Claude Code, Cursor, Codex, and 35+ AI agents. Keyword research, content wri...</p>
+                            <div class="meta">
+                                <span class="source">GitHub</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                
+                                <span class="stars">180</span>
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://github.com/egebese/seo-research-mcp" target="_blank" rel="noopener">egebese/seo-research-mcp - A free SEO research tool using Model Context Protocol (MCP) powered by Ahrefs data. Get backlink ana</a></h2>
+                            <p class="summary">A free SEO research tool using Model Context Protocol (MCP) powered by Ahrefs data. Get backlink ana...</p>
+                            <div class="meta">
+                                <span class="source">GitHub</span>
+                                
+                                <span class="tag seo-tools">SEO工具</span>
+                                
+                                
+                                
+                                <span class="stars">145</span>
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://github.com/ihuzaifashoukat/llmoptimizer" target="_blank" rel="noopener">ihuzaifashoukat/llmoptimizer - Generate clean, AI-ready llms.txt files for your website or docs. Supports crawling, sitemaps, stati</a></h2>
+                            <p class="summary">Generate clean, AI-ready llms.txt files for your website or docs. Supports crawling, sitemaps, stati...</p>
+                            <div class="meta">
+                                <span class="source">GitHub</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                
+                                <span class="stars">11</span>
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://github.com/lai0xn/sitemap-generator" target="_blank" rel="noopener">lai0xn/sitemap-generator - blazingly fast sitemap generator</a></h2>
+                            <p class="summary">blazingly fast sitemap generator</p>
+                            <div class="meta">
+                                <span class="source">GitHub</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                
+                                <span class="stars">7</span>
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://github.com/bocaletto-luca/sitemap-generator-github" target="_blank" rel="noopener">bocaletto-luca/sitemap-generator-github - sitemap-generator-github Author: Bocaletto Luca A small toolkit for regenerating sitemap.xml for you</a></h2>
+                            <p class="summary">sitemap-generator-github Author: Bocaletto Luca A small toolkit for regenerating sitemap.xml for you...</p>
+                            <div class="meta">
+                                <span class="source">GitHub</span>
+                                
+                                <span class="tag opensource">开源项目</span>
+                                
+                                
+                                
+                                <span class="stars">7</span>
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://github.com/bhanustark/Blog" target="_blank" rel="noopener">bhanustark/Blog - Fastest Blog Build on Bun and Elysia with MongoDB. Optimized for SEO with valid schema markups.</a></h2>
+                            <p class="summary">Fastest Blog Build on Bun and Elysia with MongoDB. Optimized for SEO with valid schema markups.</p>
+                            <div class="meta">
+                                <span class="source">GitHub</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                
+                                <span class="stars">16</span>
+                                
+                            </div>
+                        </article>
+                        
+                        <article>
+                            <h2><a href="https://github.com/vicentereig/sorbet-baml" target="_blank" rel="noopener">vicentereig/sorbet-baml - A Ruby gem that converts T::Struct and T::Enum to BAML (Boundary AI Markup Language) type definition</a></h2>
+                            <p class="summary">A Ruby gem that converts T::Struct and T::Enum to BAML (Boundary AI Markup Language) type definition...</p>
+                            <div class="meta">
+                                <span class="source">GitHub</span>
+                                
+                                <span class="tag news">新闻资讯</span>
+                                
+                                
+                                
+                                <span class="stars">8</span>
+                                
+                            </div>
+                        </article>
+                        
+                    
+                </div>
+            </main>
+
+            <footer>
+                <div class="footer-content">
+                    <p class="footer-brand"><span>AI</span> DAILY DIGEST</p>
+                    <div class="footer-meta">
+                        <span>by Webber</span>
+                        <span>2026-02-13 17:24</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- History data -->
+    <script>
+        const historyData = {"2026-02-13": {"articles": [{"source": "Semrush Blog", "source_type": "rss", "category": "SEO工具", "title": "How to Conduct an AI Visibility Audit with Semrush One", "url": "https://www.semrush.com/blog/ai-visibility-audit-with-semrush-one/", "summary": "Is your current website health and content strategy set up to help you succeed in AI search?", "published": "Thu, 12 Feb 2026 17:24:00 +0000", "fetched_at": "2026-02-13T17:22:57.928332", "summary_cn": "Is your current website health and content strategy set up to help you succeed in AI search?", "ai_category": "SEO工具"}, {"source": "Semrush Blog", "source_type": "rss", "category": "SEO工具", "title": "Google Search Console: The Ultimate Guide for 2026", "url": "https://www.semrush.com/blog/google-search-console/", "summary": "Learn how to use Google Search Console to monitor performance, fix issues, and improve visibility.", "published": "Thu, 12 Feb 2026 11:35:00 +0000", "fetched_at": "2026-02-13T17:22:57.928352", "summary_cn": "Learn how to use Google Search Console to monitor performance, fix issues, and improve visibility.", "ai_category": "技术教程"}, {"source": "Semrush Blog", "source_type": "rss", "category": "SEO工具", "title": "How Semrush MCP Connects Your AI Tools to Live Marketing Data", "url": "https://www.semrush.com/blog/what-is-mcp-connector/", "summary": "Learn how Semrush MCP connects AI tools to live SEO and competitive data so marketing, SEO, and product teams can query the same source without manual exports.", "published": "Tue, 10 Feb 2026 21:10:00 +0000", "fetched_at": "2026-02-13T17:22:57.928420", "summary_cn": "Learn how Semrush MCP connects AI tools to live SEO and competitive data so marketing, SEO, and prod...", "ai_category": "SEO工具"}, {"source": "Semrush Blog", "source_type": "rss", "category": "SEO工具", "title": "How to Automate Google Business Profile Management with Semrush", "url": "https://www.semrush.com/blog/how-to-automate-google-business-profile-management-with-semrush/", "summary": "Automate Google Business Profile management with Semrush’s GBP AI Agent. Save time, stay active, and support local visibility.", "published": "Fri, 06 Feb 2026 22:19:00 +0000", "fetched_at": "2026-02-13T17:22:57.928450", "summary_cn": "Automate Google Business Profile management with Semrush’s GBP AI Agent. Save time, stay active, and...", "ai_category": "SEO工具"}, {"source": "Semrush Blog", "source_type": "rss", "category": "SEO工具", "title": "13 SEO Tips to Boost Your Search Visibility", "url": "https://www.semrush.com/blog/seo-tips/", "summary": "Top SEO tips include targeting the right terms, updating your content, and prioritizing readability.", "published": "Fri, 06 Feb 2026 10:29:00 +0000", "fetched_at": "2026-02-13T17:22:57.928458", "summary_cn": "Top SEO tips include targeting the right terms, updating your content, and prioritizing readability.", "ai_category": "新闻资讯"}, {"source": "Semrush Blog", "source_type": "rss", "category": "SEO工具", "title": "7 Sitemap Examples: XML, HTML, and Visual Sitemaps", "url": "https://www.semrush.com/blog/sitemap-examples/", "summary": "See XML, HTML, and visual sitemap examples from real sites—plus guidance on what to include in yours.", "published": "Thu, 05 Feb 2026 10:59:00 +0000", "fetched_at": "2026-02-13T17:22:57.928476", "summary_cn": "See XML, HTML, and visual sitemap examples from real sites—plus guidance on what to include in yours...", "ai_category": "新闻资讯"}, {"source": "Ahrefs Blog", "source_type": "rss", "category": "SEO工具", "title": "Anonymized Queries Make Up Nearly Half of Google Search Console Traffic", "url": "https://ahrefs.com/blog/gsc-anonymized-queries/", "summary": "This number is slightly higher than our 2022 study on anonymized queries. However, that’s the average. Some websites in our research saw dramatically higher percentages of anonymized queries. Read on to see how it might impact you. The problem is&#8230;Read more &#8250;", "published": "Wed, 11 Feb 2026 14:14:33 +0000", "fetched_at": "2026-02-13T17:22:58.657994", "summary_cn": "This number is slightly higher than our 2022 study on anonymized queries. However, that’s the averag...", "ai_category": "数据报告"}, {"source": "Ahrefs Blog", "source_type": "rss", "category": "SEO工具", "title": "E-E-A-T Audit: 220+ Markers That Measure Experience, Expertise, Authority, and Trust", "url": "https://ahrefs.com/blog/eeat-audit/", "summary": "The answer is an E-E-A-T audit. If you’re unfamiliar with E-E-A-T (Experience, Expertise, Authoritativeness, and Trust), start with our guide to E-E-A-T in SEO. This post assumes you understand the basics and are ready to audit a brand you’re working&#8230;Read more &#8250;", "published": "Tue, 10 Feb 2026 21:35:44 +0000", "fetched_at": "2026-02-13T17:22:58.658013", "summary_cn": "The answer is an E-E-A-T audit. If you’re unfamiliar with E-E-A-T (Experience, Expertise, Authoritat...", "ai_category": "技术教程"}, {"source": "Ahrefs Blog", "source_type": "rss", "category": "SEO工具", "title": "Google Maps SEO: 5 Proven Strategies to Rank Higher", "url": "https://ahrefs.com/blog/google-maps-seo/", "summary": "But when potential customers search “pizza near me” or “plumber in London,” you’re nowhere to be found in the top three results. Your competitors are stealing your customers. Here’s the reality: just having a Google Business Profile doesn’t mean Google&#8230;Read more &#8250;", "published": "Mon, 02 Feb 2026 17:03:21 +0000", "fetched_at": "2026-02-13T17:22:58.658064", "summary_cn": "But when potential customers search “pizza near me” or “plumber in London,” you’re nowhere to be fou...", "ai_category": "案例分析"}, {"source": "Ahrefs Blog", "source_type": "rss", "category": "SEO工具", "title": "Semantic Search Is the Only Search That Matters Now (For SEO and AI Visibility)", "url": "https://ahrefs.com/blog/semantic-search-is-the-only-search-that-matters-now/", "summary": "Search engines “think” in topics, not keywords. They understand entities—people, places, products, ideas—and how they relate. They focus on meaning, not word matching. If you want to do SEO today, or show up in AI recommendations, you need to understand&#8230;Read more &#8250;", "published": "Mon, 26 Jan 2026 09:48:16 +0000", "fetched_at": "2026-02-13T17:22:58.658096", "summary_cn": "Search engines “think” in topics, not keywords. They understand entities—people, places, products, i...", "ai_category": "新闻资讯"}, {"source": "Moz Blog", "source_type": "rss", "category": "SEO工具", "title": "Cannibalization", "url": "https://feedpress.me/link/9375/14757949/cannibalization", "summary": "In today's episode of Whiteboard Friday, Moz SEO expert Tom Capper walks you through cannibalization: what it is, how to identify it, and how to fix it.", "published": "Fri, 17 Sep 2021 00:00:00 -0700", "fetched_at": "2026-02-13T17:23:01.321910", "summary_cn": "In today's episode of Whiteboard Friday, Moz SEO expert Tom Capper walks you through cannibalization...", "ai_category": "SEO工具"}, {"source": "Moz Blog", "source_type": "rss", "category": "SEO工具", "title": "Tackling 8,000 Title Tag Rewrites: A Case Study", "url": "https://feedpress.me/link/9375/14753388/title-tag-rewrite-case-study", "summary": "Let's take an in-depth look at Moz.com title tags that were re-written by Google, including three case studies where we managed to fix bad rewrites.", "published": "Thu, 16 Sep 2021 00:00:00 -0700", "fetched_at": "2026-02-13T17:23:01.321950", "summary_cn": "Let's take an in-depth look at Moz.com title tags that were re-written by Google, including three ca...", "ai_category": "SEO工具"}, {"source": "Moz Blog", "source_type": "rss", "category": "SEO工具", "title": "How to Add Products to Your Google My Business Listing, Illustrated", "url": "https://feedpress.me/link/9375/14746944/add-products-to-gmb-listing", "summary": "Miriam helps you get started in Google My Business Products with this illustrated tutorial, walking you through how to add your most important products and services.", "published": "Mon, 13 Sep 2021 00:00:00 -0700", "fetched_at": "2026-02-13T17:23:01.322032", "summary_cn": "Miriam helps you get started in Google My Business Products with this illustrated tutorial, walking...", "ai_category": "本地SEO"}, {"source": "Moz Blog", "source_type": "rss", "category": "SEO工具", "title": "The Three Bosses of SEO", "url": "https://feedpress.me/link/9375/14742542/three-seo-bosses", "summary": "In SEO, there are three main “bosses” with different needs: your business, your searchers, and your search engines. How do you answer to all of them?", "published": "Fri, 10 Sep 2021 00:00:00 -0700", "fetched_at": "2026-02-13T17:23:01.322055", "summary_cn": "In SEO, there are three main “bosses” with different needs: your business, your searchers, and your...", "ai_category": "新闻资讯"}, {"source": "Moz Blog", "source_type": "rss", "category": "SEO工具", "title": "Winning the Page Speed Race: How to Turn Your Clunker of a Website Into a Race Car", "url": "https://feedpress.me/link/9375/14737629/winning-page-speed", "summary": "Winning the page speed race requires the same things as winning a car race: making sure that your vehicle is as lightweight as possible, as powerful as possible, and that you navigate the racetrack as efficiently as possible. ", "published": "Wed, 08 Sep 2021 00:00:00 -0700", "fetched_at": "2026-02-13T17:23:01.322090", "summary_cn": "Winning the page speed race requires the same things as winning a car race: making sure that your ve...", "ai_category": "技术教程"}, {"source": "Moz Blog", "source_type": "rss", "category": "SEO工具", "title": "How to Calculate Your SEO ROI Using Google Analytics", "url": "https://feedpress.me/link/9375/14733670/calculate-seo-roi-with-google-analytics", "summary": "Measuring ROI for your SEO efforts involves two factors: KPIs and the cost of your current SEO campaigns. With GA, you can pinpoint where your audience is coming from, set goals to stay on track, and incorporate the most attractive keywords to rank better in search engines.", "published": "Mon, 06 Sep 2021 00:00:00 -0700", "fetched_at": "2026-02-13T17:23:01.322135", "summary_cn": "Measuring ROI for your SEO efforts involves two factors: KPIs and the cost of your current SEO campa...", "ai_category": "技术教程"}, {"source": "Moz Blog", "source_type": "rss", "category": "SEO工具", "title": "How to Use STAT to Find SEO Opportunities at Scale", "url": "https://feedpress.me/link/9375/14729254/find-seo-opportunities-with-stat", "summary": "Today, Cyrus explains how powerful STAT can be when you’re trying to discover SEO opportunities on a massive scale.", "published": "Fri, 03 Sep 2021 00:00:00 -0700", "fetched_at": "2026-02-13T17:23:01.322150", "summary_cn": "Today, Cyrus explains how powerful STAT can be when you’re trying to discover SEO opportunities on a...", "ai_category": "技术教程"}, {"source": "Moz Blog", "source_type": "rss", "category": "SEO工具", "title": "The Guide to Targeted-Impact Link Building", "url": "https://feedpress.me/link/9375/14723651/targeted-impact-link-building-guide", "summary": "Links drive rankings — that’s one thing that SEOs and marketers can agree on. But which rankings, and for which pages on your website? Use this guide to build links that impact rankings for specific pages on your website.", "published": "Wed, 01 Sep 2021 00:00:00 -0700", "fetched_at": "2026-02-13T17:23:01.322169", "summary_cn": "Links drive rankings — that’s one thing that SEOs and marketers can agree on. But which rankings, an...", "ai_category": "技术教程"}, {"source": "Search Engine Journal", "source_type": "rss", "category": "行业媒体", "title": "From Performance SEO To Demand SEO via @sejournal, @TaylorDanRW", "url": "https://www.searchenginejournal.com/from-performance-seo-to-demand-seo/566743/", "summary": "Rethink SEO’s role as AI shifts discovery into the answer and reshapes how demand, trust, and preference are formed.\nThe post From Performance SEO To Demand SEO appeared first on Search Engine Journal.", "published": "Thu, 12 Feb 2026 13:30:24 +0000", "fetched_at": "2026-02-13T17:23:06.344319", "summary_cn": "Rethink SEO’s role as AI shifts discovery into the answer and reshapes how demand, trust, and prefer...", "ai_category": "新闻资讯"}, {"source": "Search Engine Journal", "source_type": "rss", "category": "行业媒体", "title": "What The Data Shows About Local Rankings In 2026 [Webinar] via @sejournal, @hethr_campbell", "url": "https://www.searchenginejournal.com/what-the-data-shows-about-local-rankings/565920/", "summary": "Enhance your understanding of local rankings with reputation signals. Join experts for a deep dive into local SEO strategies.\nThe post What The Data Shows About Local Rankings In 2026 [Webinar] appeared first on Search Engine Journal.", "published": "Wed, 11 Feb 2026 20:30:27 +0000", "fetched_at": "2026-02-13T17:23:06.344403", "summary_cn": "Enhance your understanding of local rankings with reputation signals. Join experts for a deep dive i...", "ai_category": "本地SEO"}, {"source": "Search Engine Land", "source_type": "rss", "category": "行业媒体", "title": "If SEO is rocket science, AI SEO is astrophysics", "url": "https://searchengineland.com/seo-rocket-science-ai-seo-astrophysics-468923", "summary": "AI search runs on entity mass, not surface signals. See how citations and extractability shape AI Overviews and LLM visibility.", "published": "Thu, 12 Feb 2026 15:00:00 +0000", "fetched_at": "2026-02-13T17:23:07.040519", "summary_cn": "AI search runs on entity mass, not surface signals. See how citations and extractability shape AI Ov...", "ai_category": "本地SEO"}, {"source": "Search Engine Land", "source_type": "rss", "category": "行业媒体", "title": "Local SEO sprints: A 90-day plan for service businesses in 2026", "url": "https://searchengineland.com/local-seo-sprints-a-90-day-plan-for-service-businesses-in-2026-469059", "summary": "From GBP fundamentals to reviews and service pages, this framework helps you turn local visibility into consistent calls and booked jobs.", "published": "Thu, 12 Feb 2026 13:00:00 +0000", "fetched_at": "2026-02-13T17:23:07.040558", "summary_cn": "From GBP fundamentals to reviews and service pages, this framework helps you turn local visibility i...", "ai_category": "本地SEO"}, {"source": "Search Engine Land", "source_type": "rss", "category": "行业媒体", "title": "Google previews WebMCP, a new protocol for AI agent interactions", "url": "https://searchengineland.com/google-releases-preview-of-webmcp-how-ai-agents-interact-with-websites-469024", "summary": "Google's WebMCP protocol lets AI agents execute structured actions on websites via browser APIs. Is this the next frontier of technical SEO?", "published": "Wed, 11 Feb 2026 16:50:44 +0000", "fetched_at": "2026-02-13T17:23:07.040590", "summary_cn": "Google's WebMCP protocol lets AI agents execute structured actions on websites via browser APIs. Is...", "ai_category": "新闻资讯"}, {"source": "Backlinko", "source_type": "rss", "category": "案例教程", "title": "How to Automate Marketing With 8 Simple Workflows", "url": "https://backlinko.com/automate-marketing", "summary": "Everybody wants smoother workflows and fewer manual tasks. And thanks to AI models, automation is at the center of conversations in marketing departments across all industries. But most rarely get the results they’re looking for. According to Ascend2’s State of Marketing Automation Report, only 28% of marketers say their automation “very successfully” supports their objectives. &#8230;\nThe post How to Automate Marketing With 8 Simple Workflows appeared first on Backlinko.", "published": "Thu, 22 Jan 2026 21:47:41 +0000", "fetched_at": "2026-02-13T17:23:10.934146", "summary_cn": "Everybody wants smoother workflows and fewer manual tasks. And thanks to AI models, automation is at...", "ai_category": "开源项目"}, {"source": "Backlinko", "source_type": "rss", "category": "案例教程", "title": "Perplexity AI User and Revenue Statistics", "url": "https://backlinko.com/perplexity-statistics", "summary": "Founded in 2022, Perplexity offers an AI-powered search engine. AI tools offer a new way to search for factual information, where Perplexity stands out as an AI-native search engine that combines large language models with real-time web search. With a valuation of $20 billion and a growing user base of 30 million monthly active users, &#8230;\nThe post Perplexity AI User and Revenue Statistics appeared first on Backlinko.", "published": "Mon, 19 Jan 2026 18:20:39 +0000", "fetched_at": "2026-02-13T17:23:10.934161", "summary_cn": "Founded in 2022, Perplexity offers an AI-powered search engine. AI tools offer a new way to search f...", "ai_category": "SEO工具"}, {"source": "Backlinko", "source_type": "rss", "category": "案例教程", "title": "7 Marketing AI Adoption Challenges (And How to Fix Them)", "url": "https://backlinko.com/marketing-ai-adoption", "summary": "You&#8217;ve likely invested in AI tools for your marketing team, or at least encouraged people to experiment. Some use the tools daily. Others avoid them. A few test them quietly on the side. This inconsistency creates a problem. An MIT study found that 95% of AI pilots fail to show measurable ROI. Scattered marketing AI &#8230;\nThe post 7 Marketing AI Adoption Challenges (And How to Fix Them) appeared first on Backlinko.", "published": "Tue, 13 Jan 2026 15:57:13 +0000", "fetched_at": "2026-02-13T17:23:10.934169", "summary_cn": "You&#8217;ve likely invested in AI tools for your marketing team, or at least encouraged people to e...", "ai_category": "SEO工具"}, {"source": "Backlinko", "source_type": "rss", "category": "案例教程", "title": "Content Writing 101: 8 Skills That Set Top Writers Apart", "url": "https://backlinko.com/content-writing", "summary": "With AI tools at everyone&#8217;s fingertips, what does “great” content writing mean in 2026? Content writing is about using words and psychology to deliver value, earn trust, and move readers toward action. It includes blog posts, social media content, newsletters, and white papers. Or it can be scripts for video, podcasts, and presentations. Content Type &#8230;\nThe post Content Writing 101: 8 Skills That Set Top Writers Apart appeared first on Backlinko.", "published": "Wed, 07 Jan 2026 17:40:35 +0000", "fetched_at": "2026-02-13T17:23:10.934179", "summary_cn": "With AI tools at everyone&#8217;s fingertips, what does “great” content writing mean in 2026? Conten...", "ai_category": "SEO工具"}, {"source": "Backlinko", "source_type": "rss", "category": "案例教程", "title": "Fashion AI SEO: How to Improve Your Brand’s LLM Visibility", "url": "https://backlinko.com/fashion-ai", "summary": "AI chat is changing how people shop for fashion — fast. Before AI, buying something as simple as casual leggings meant typing keywords into Google. Then, sifting through pages of results. Comparing prices. Reading reviews. Getting overwhelmed. In fact, 74% of shoppers give up because there’s too much choice, according to research by Business of &#8230;\nThe post Fashion AI SEO: How to Improve Your Brand’s LLM Visibility appeared first on Backlinko.", "published": "Fri, 02 Jan 2026 15:14:36 +0000", "fetched_at": "2026-02-13T17:23:10.934187", "summary_cn": "AI chat is changing how people shop for fashion — fast. Before AI, buying something as simple as cas...", "ai_category": "案例分析"}, {"source": "Backlinko", "source_type": "rss", "category": "案例教程", "title": "How to Build a Brand Subreddit: Full Setup Guide (+ Examples)", "url": "https://backlinko.com/brand-subreddit", "summary": "Creating an official brand subreddit is one of the hardest marketing spaces to get right. Why? Because it’s hostile ground for traditional brand messaging, with some of the internet’s snarkiest users watching every move. But if you strike the right balance, the payoff is huge. Just look at r/fidelityinvestments. This brand subreddit has grown into &#8230;\nThe post How to Build a Brand Subreddit: Full Setup Guide (+ Examples) appeared first on Backlinko.", "published": "Wed, 17 Dec 2025 14:53:02 +0000", "fetched_at": "2026-02-13T17:23:10.934197", "summary_cn": "Creating an official brand subreddit is one of the hardest marketing spaces to get right. Why? Becau...", "ai_category": "技术教程"}, {"source": "r/SEO", "source_type": "reddit", "category": "社区讨论", "title": "Introducing AI Performance in Bing Webmaster Tools Public Preview", "url": "https://reddit.com/r/SEO/comments/1r1c6ru/introducing_ai_performance_in_bing_webmaster/", "summary": "H/t tp u/lilyraynyc for sharing this on [X](https://x.com/lilyraynyc/status/2021301631912902912)\n\n# How To See it\n\nClick on the AI Dashboard Report on the LHS\n\n  \n**Extending Search Insights to AI Answers**\n\nBing Webmaster Tools has long helped website owners understand indexing, crawl health, and search performance. AI Performance extends those insights to AI-generated answers by showing where and how content from your site is referenced as a source across AI experiences.\n\nAs AI becomes a more ", "score": 25, "fetched_at": "2026-02-13T17:23:15.201399", "summary_cn": "H/t tp u/lilyraynyc for sharing this on [X](https://x.com/lilyraynyc/status/2021301631912902912)\n\n#...", "ai_category": "开源项目"}, {"source": "r/SEO", "source_type": "reddit", "category": "社区讨论", "title": "Understanding Crawled, Not Indexed in GSC - an Authority Issue", "url": "https://reddit.com/r/SEO/comments/1qzt59k/understanding_crawled_not_indexed_in_gsc_an/", "summary": "In Google Search Console, one of the most misunderstood status messages is “Crawled — currently not indexed.” Many site owners see this line and assume something went wrong — that Googlebot hit a 404, a soft 5xx, a robots.txt block, or a meta noindex tag. But that’s not what’s happening. Crawled means that its passed ALL of these checks - a page cannot pass to crawled if it hits any of these errors - in which case it will show in blocked, Noindex, 4xx, 3xx, 5xx or server error.\n\nWhen a page is m", "score": 92, "fetched_at": "2026-02-13T17:23:15.201450", "summary_cn": "In Google Search Console, one of the most misunderstood status messages is “Crawled — currently not...", "ai_category": "新闻资讯"}, {"source": "r/SEO", "source_type": "reddit", "category": "社区讨论", "title": "Best SEO tool?", "url": "https://reddit.com/r/SEO/comments/1r3etzy/best_seo_tool/", "summary": "Is SE Ranking the most affordable and quality SEO tool out there? They just recently raised their prices but it's still slightly lower than ahref and semrush. \n\nI'm not looking for no wanker tools like Neil patel but all in one type with Looker Studio integration for reports", "score": 12, "fetched_at": "2026-02-13T17:23:15.201458", "summary_cn": "Is SE Ranking the most affordable and quality SEO tool out there? They just recently raised their pr...", "ai_category": "开源项目"}, {"source": "r/SEO", "source_type": "reddit", "category": "社区讨论", "title": "What's the longest you've seen Google Search Console take to index a page?", "url": "https://reddit.com/r/SEO/comments/1r3fy2l/whats_the_longest_youve_seen_google_search/", "summary": "I requested indexing for a page about 3 weeks ago and it's still showing as pending. Is that normal?", "score": 2, "fetched_at": "2026-02-13T17:23:15.201469", "summary_cn": "I requested indexing for a page about 3 weeks ago and it's still showing as pending. Is that normal?", "ai_category": "新闻资讯"}, {"source": "r/bigseo", "source_type": "reddit", "category": "社区讨论", "title": "SEO Help Weekly Mega Thread", "url": "https://reddit.com/r/bigseo/comments/1r04ymf/seo_help_weekly_mega_thread/", "summary": "**Beginner questions welcome.**\n\nPost any legitimate SEO question. Ask for help with technical SEO issues you are having, career questions, anything connected to SEO.\n\nHopefully someone will see and answer your question.\n\nFeel free to post feedback/ideas in this thread also!\n\n\\*\\*\n\n[r/BigSEO](https://www.reddit.com/r/BigSEO/) **rules still apply, no spam, service offerings, \"DM me for help\", link exchanges/link sales, or unhelpful links.**", "score": 4, "fetched_at": "2026-02-13T17:23:16.467931", "summary_cn": "**Beginner questions welcome.**\n\nPost any legitimate SEO question. Ask for help with technical SEO i...", "ai_category": "新闻资讯"}, {"source": "r/bigseo", "source_type": "reddit", "category": "社区讨论", "title": "Is It Okay to Publish a Case Study Without Mentioning the Client Name?", "url": "https://reddit.com/r/bigseo/comments/1r3jlxb/is_it_okay_to_publish_a_case_study_without/", "summary": "I want to publish a case study on my website for SEO and credibility, but the client prefers to stay anonymous.\n\nIs it still effective for marketing and SEO if I don’t mention the client name?\n\nWill it reduce trust or conversions?\n\nHas anyone here published anonymous case studies that performed well?", "score": 1, "fetched_at": "2026-02-13T17:23:16.467980", "summary_cn": "I want to publish a case study on my website for SEO and credibility, but the client prefers to stay...", "ai_category": "案例分析"}, {"source": "r/bigseo", "source_type": "reddit", "category": "社区讨论", "title": "outsourcing SEO internationally - What’s worked for you?", "url": "https://reddit.com/r/bigseo/comments/1r29g2b/outsourcing_seo_internationally_whats_worked_for/", "summary": "\\*update: if you’re just going to comment opinions on this type of leadership, please just don’t comment at all. i’m very aware that this is not effective, we all know outsourcing cheap labor isn’t great, we all know it’s poor quality, we get it. everyone feels the same way - you dint need to comment on \\*that aspect\\* although i’m sure nobody’s going to read this and comment anyway.\n\nMy company is set on hiring international SEO support.\n\nFor those of you who've worked with international teams,", "score": 9, "fetched_at": "2026-02-13T17:23:16.468030", "summary_cn": "\\*update: if you’re just going to comment opinions on this type of leadership, please just don’t com...", "ai_category": "新闻资讯"}, {"source": "r/bigseo", "source_type": "reddit", "category": "社区讨论", "title": "Tanked to almost zero leads", "url": "https://reddit.com/r/bigseo/comments/1r2kwts/tanked_to_almost_zero_leads/", "summary": "Since Feb start, we had little to no leads from our SEO channel. But no drop in clicks, impressions, or rank. Forms are working. Nobody is able to attribute this to a specific reason. ", "score": 2, "fetched_at": "2026-02-13T17:23:16.468036", "summary_cn": "Since Feb start, we had little to no leads from our SEO channel. But no drop in clicks, impressions,...", "ai_category": "新闻资讯"}, {"source": "r/TechSEO", "source_type": "reddit", "category": "社区讨论", "title": "Would you suggest finish developing a whole website offline before uploading it, or just develop it online as it goes, if it is going to take over 5months to finish the job? (SEO Wise)", "url": "https://reddit.com/r/TechSEO/comments/1r3ju9d/would_you_suggest_finish_developing_a_whole/", "summary": "I wonder more how each approach would affect the SEO results.", "score": 2, "fetched_at": "2026-02-13T17:23:17.477783", "summary_cn": "I wonder more how each approach would affect the SEO results.", "ai_category": "案例分析"}, {"source": "r/TechSEO", "source_type": "reddit", "category": "社区讨论", "title": "Moltbook AI SEO: Citation Probability &gt; Position #1?", "url": "https://reddit.com/r/TechSEO/comments/1r3ire7/moltbook_ai_seo_citation_probability_position_1/", "summary": "Serious question for this sub:\n\nAre we slowly moving from ranking optimization to retrieval optimization?\n\nWith what people are calling Moltbook AI SEO, the goal isn’t just “rank #1” — it’s:\n\n→ Increase the probability your content gets cited inside AI-generated answers.\n\nThat changes the playbook.\n\nInstead of obsessing over:\n\n\\- CTR curves\n\n\\- Exact-match anchors\n\n\\- Minor CWV tweaks\n\nThe focus shifts to:\n\n\\- Clear, extractable definitions\n\n\\- Strong entity reinforcement\n\n\\- Structured comparis", "score": 2, "fetched_at": "2026-02-13T17:23:17.477794", "summary_cn": "Serious question for this sub:\n\nAre we slowly moving from ranking optimization to retrieval optimiza...", "ai_category": "本地SEO"}, {"source": "Hacker News", "source_type": "hackernews", "category": "社区讨论", "title": "Tell HN: Ralph Giles has died (Xiph.org| Rust@Mozilla | Ghostscript)", "url": "https://news.ycombinator.com/item?id=46996490", "summary": "HN 热门 - 206 分, 8 条评论", "score": 206, "fetched_at": "2026-02-13T17:23:27.576676", "summary_cn": "HN 热门 - 206 分, 8 条评论", "ai_category": "SEO工具"}, {"source": "GitHub", "source_type": "github", "category": "开源项目", "title": "PhialsBasement/LibreCrawl - Free desktop SEO crawler - open source alternative to Screaming Frog and similar tools. Crawl websit", "url": "https://github.com/PhialsBasement/LibreCrawl", "summary": "Free desktop SEO crawler - open source alternative to Screaming Frog and similar tools. Crawl websites, analyze links, extract SEO data, and export results without subscription fees. Fully customizable and extensible!", "stars": 436, "language": "Python", "fetched_at": "2026-02-13T17:23:48.652731", "summary_cn": "Free desktop SEO crawler - open source alternative to Screaming Frog and similar tools. Crawl websit...", "ai_category": "开源项目"}, {"source": "GitHub", "source_type": "github", "category": "开源项目", "title": "riodwanto/superduper-filament-starter-kit - A comprehensive Laravel Filament 💡 starter kit with pre-installed plugins, admin panel, user managem", "url": "https://github.com/riodwanto/superduper-filament-starter-kit", "summary": "A comprehensive Laravel Filament 💡 starter kit with pre-installed plugins, admin panel, user management, SEO tools, theme customization, front site components, and content management for rapid application development", "stars": 268, "language": "PHP", "fetched_at": "2026-02-13T17:23:48.652760", "summary_cn": "A comprehensive Laravel Filament 💡 starter kit with pre-installed plugins, admin panel, user managem...", "ai_category": "SEO工具"}, {"source": "GitHub", "source_type": "github", "category": "开源项目", "title": "marketingtoolslist/awesome-marketing - A curated list of awesome marketing tools and resources", "url": "https://github.com/marketingtoolslist/awesome-marketing", "summary": "A curated list of awesome marketing tools and resources", "stars": 244, "language": null, "fetched_at": "2026-02-13T17:23:48.652765", "summary_cn": "A curated list of awesome marketing tools and resources", "ai_category": "SEO工具"}, {"source": "GitHub", "source_type": "github", "category": "开源项目", "title": "aaron-he-zhu/seo-geo-claude-skills - 20 SEO & GEO skills for Claude Code, Cursor, Codex, and 35+ AI agents. Keyword research, content wri", "url": "https://github.com/aaron-he-zhu/seo-geo-claude-skills", "summary": "20 SEO & GEO skills for Claude Code, Cursor, Codex, and 35+ AI agents. Keyword research, content writing, technical audits, rank tracking. CORE-EEAT + CITE frameworks.", "stars": 180, "language": null, "fetched_at": "2026-02-13T17:23:49.305943", "summary_cn": "20 SEO & GEO skills for Claude Code, Cursor, Codex, and 35+ AI agents. Keyword research, content wri...", "ai_category": "新闻资讯"}, {"source": "GitHub", "source_type": "github", "category": "开源项目", "title": "egebese/seo-research-mcp - A free SEO research tool using Model Context Protocol (MCP) powered by Ahrefs data. Get backlink ana", "url": "https://github.com/egebese/seo-research-mcp", "summary": "A free SEO research tool using Model Context Protocol (MCP) powered by Ahrefs data. Get backlink analysis, keyword research, traffic estimation, and more — directly in your AI-powered IDE.", "stars": 145, "language": "Python", "fetched_at": "2026-02-13T17:23:49.305967", "summary_cn": "A free SEO research tool using Model Context Protocol (MCP) powered by Ahrefs data. Get backlink ana...", "ai_category": "SEO工具"}, {"source": "GitHub", "source_type": "github", "category": "开源项目", "title": "ihuzaifashoukat/llmoptimizer - Generate clean, AI-ready llms.txt files for your website or docs. Supports crawling, sitemaps, stati", "url": "https://github.com/ihuzaifashoukat/llmoptimizer", "summary": "Generate clean, AI-ready llms.txt files for your website or docs. Supports crawling, sitemaps, static builds, and framework-aware adapters (Next.js, Vite, Nuxt, Astro, Remix). Includes Markdown/MDX docs mode and robots.txt generator for LLM and search crawlers.", "stars": 11, "language": "TypeScript", "fetched_at": "2026-02-13T17:23:50.017775", "summary_cn": "Generate clean, AI-ready llms.txt files for your website or docs. Supports crawling, sitemaps, stati...", "ai_category": "新闻资讯"}, {"source": "GitHub", "source_type": "github", "category": "开源项目", "title": "lai0xn/sitemap-generator - blazingly fast sitemap generator", "url": "https://github.com/lai0xn/sitemap-generator", "summary": "blazingly fast sitemap generator", "stars": 7, "language": "Go", "fetched_at": "2026-02-13T17:23:50.017794", "summary_cn": "blazingly fast sitemap generator", "ai_category": "新闻资讯"}, {"source": "GitHub", "source_type": "github", "category": "开源项目", "title": "bocaletto-luca/sitemap-generator-github - sitemap-generator-github Author: Bocaletto Luca A small toolkit for regenerating sitemap.xml for you", "url": "https://github.com/bocaletto-luca/sitemap-generator-github", "summary": "sitemap-generator-github Author: Bocaletto Luca A small toolkit for regenerating sitemap.xml for your GitHub Pages portfolio. This repo provides three interchangeable methods—pick the one that fits your workflow best:  Local Bash script (gen-sitemap.sh) Local Node.js script (generate-sitemap.js) Git", "stars": 7, "language": "Shell", "fetched_at": "2026-02-13T17:23:50.017805", "summary_cn": "sitemap-generator-github Author: Bocaletto Luca A small toolkit for regenerating sitemap.xml for you...", "ai_category": "开源项目"}, {"source": "GitHub", "source_type": "github", "category": "开源项目", "title": "bhanustark/Blog - Fastest Blog Build on Bun and Elysia with MongoDB. Optimized for SEO with valid schema markups.", "url": "https://github.com/bhanustark/Blog", "summary": "Fastest Blog Build on Bun and Elysia with MongoDB. Optimized for SEO with valid schema markups.", "stars": 16, "language": "TypeScript", "fetched_at": "2026-02-13T17:23:50.744711", "summary_cn": "Fastest Blog Build on Bun and Elysia with MongoDB. Optimized for SEO with valid schema markups.", "ai_category": "新闻资讯"}, {"source": "GitHub", "source_type": "github", "category": "开源项目", "title": "vicentereig/sorbet-baml - A Ruby gem that converts T::Struct and T::Enum to BAML (Boundary AI Markup Language) type definition", "url": "https://github.com/vicentereig/sorbet-baml", "summary": "A Ruby gem that converts T::Struct and T::Enum to BAML (Boundary AI Markup Language) type definitions. BAML uses 60% fewer tokens than JSON Schema while maintaining type safety.", "stars": 8, "language": "Ruby", "fetched_at": "2026-02-13T17:23:50.744734", "summary_cn": "A Ruby gem that converts T::Struct and T::Enum to BAML (Boundary AI Markup Language) type definition...", "ai_category": "新闻资讯"}], "count": 50, "fetched_at": "2026-02-13T17:23:51.359226"}};
+
+        function getTagClass(category) {
+            const map = {
+                'SEO工具': 'seo-tools',
+                '案例分析': 'case-study',
+                '数据报告': 'data-report',
+                '技术教程': 'tutorial',
+                '新闻资讯': 'news',
+                '本地SEO': 'local-seo',
+                '开源项目': 'opensource'
+            };
+            return map[category] || 'news';
+        }
+
+        function renderArticles(articles) {
+            const container = document.getElementById('articlesContainer');
+
+            if (!articles || articles.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📭</div>
+                        <p>暂无数据</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = articles.map((article, index) => `
+                <article style="animation-delay: ${index * 0.05}s">
+                    <h2><a href="${article.url}" target="_blank" rel="noopener">${article.title}</a></h2>
+                    <p class="summary">${article.summary_cn || article.summary || ''}</p>
+                    <div class="meta">
+                        <span class="source">${article.source}</span>
+                        ${article.ai_category ? `<span class="tag ${getTagClass(article.ai_category)}">${article.ai_category}</span>` : ''}
+                        ${article.score ? `<span class="score">${article.score}</span>` : ''}
+                        ${article.stars ? `<span class="stars">${article.stars}</span>` : ''}
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function switchDate(date) {
+            // Update sidebar active state
+            document.querySelectorAll('.history-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.date === date) {
+                    item.classList.add('active');
+                }
+            });
+
+            // Update current date display
+            document.getElementById('currentDateDisplay').textContent = date;
+
+            // Update count
+            const data = historyData[date];
+            document.getElementById('currentCount').textContent = data ? data.count : 0;
+
+            // Render articles
+            renderArticles(data ? data.articles : []);
+
+            // Close mobile sidebar
+            document.getElementById('sidebar').classList.remove('open');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('sidebarToggle');
+            if (window.innerWidth <= 900 &&
+                !sidebar.contains(e.target) &&
+                !toggle.contains(e.target) &&
+                sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
